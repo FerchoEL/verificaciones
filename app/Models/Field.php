@@ -11,4 +11,12 @@ class Field extends Model
     public function verifications(){
         return $this->belongsToMany('App\Models\Verification','verification_details');
     }
+    //CONFIGURATION_FIELD
+    public function configurations(){
+        return $this->belongsToMany('App\Models\Configuration');
+    }
+    //CONFIGURATION_FIELD_MOD
+    public function modifiedConfigurations(){
+        return $this->belongsToMany('App\Models\Configuration','configuration_field_mod');
+    }
 }
