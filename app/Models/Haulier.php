@@ -11,4 +11,10 @@ class Haulier extends Model
     public function units(){
         return $this->hasMany('App\Models\Unit');
     }
+    public function entities(){
+        return $this->hasMany('App\Models\Entity');
+    }
+    public function verifications(){
+        return $this->hasMany('App\Models\Verification');
+    }
 }

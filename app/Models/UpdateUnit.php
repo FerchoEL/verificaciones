@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UpdateUnit extends Model
 {
     use HasFactory;
+    public function unit(){
+        return $this->belongsTo('App\Models\Unit');
+    }
 }

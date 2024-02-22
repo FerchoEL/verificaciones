@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FeatureMotorUnit extends Model
 {
     use HasFactory;
+    public function unit(){
+        return $this->belongsTo('App\Models\Unit');
+    }
 }

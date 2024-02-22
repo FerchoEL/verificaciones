@@ -19,4 +19,7 @@ class Field extends Model
     public function modifiedConfigurations(){
         return $this->belongsToMany('App\Models\Configuration','configuration_field_mod');
     }
+    public function detailValues(){
+        return $this->hasMany('App\Models\DetailValue');
+    }
 }

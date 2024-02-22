@@ -26,4 +26,7 @@ class Type extends Model
     public function units(){
         return $this->belongsToMany('App\Models\Unit','special_features')->withTimestamps;
     }
+    public function supportingFeatures(){
+        return $this->hasMany('App\Models\SupportingFeature');
+    }
 }

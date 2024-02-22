@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Entity extends Model
 {
     use HasFactory;
+    public function units(){
+        return $this->hasMany('App\Models\Unit');
+    }
 }

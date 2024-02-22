@@ -19,4 +19,7 @@ class Vehicle extends Model
     /*public function components(){
         return $this->belongsToMany('App\Models\Component','component_configuration')->withTimestamps;
     }*/
+    public function units(){
+        return $this->hasMany('App\Models\Unit');
+    }
 }

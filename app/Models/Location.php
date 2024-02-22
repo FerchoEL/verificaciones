@@ -18,4 +18,7 @@ class Location extends Model
     public function mailing_lists(){
         return $this->belongsToMany('App\Models\MailingList', 'chain_location_mailing_list')->withTimestamps;
     }
+    public function verifications(){
+        return $this->hasMany('App\Models\Verification');
+    }
 }

@@ -31,4 +31,7 @@ class Configuration extends Model
     public function modifiedFields(){
         return $this->belongsToMany('App\Models\Field','configuration_field_mod');
     }
+    public function verifications(){
+        return $this->hasMany('App\Models\Verification');
+    }
 }

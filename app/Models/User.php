@@ -45,6 +45,10 @@ class User extends Authenticatable
     public function location(){
         return $this->belongsTo('App\Models\Location');
     }
-
-
+    public function units(){
+        return $this->hasMany('App\Models\Unit');
+    }
+    public function verifications(){
+        return $this->hasMany('App\Models\Verification');
+    }
 }

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TypeVerification extends Model
 {
     use HasFactory;
+    public function verifications(){
+        return $this->hasMany('App\Models\Verification');
+    }
 }

@@ -18,4 +18,10 @@ class Component extends Model
     public function configurations(){
         return $this->belongsToMany('App\Models\Configuration');
     }
+    public function units(){
+        return $this->hasMany('App\Models\Unit');
+    }
+    public function carBrands(){
+        return $this->hasMany('App\Models\CarBrand');
+    }
 }
