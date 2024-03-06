@@ -9,7 +9,9 @@ class Kernel extends ConsoleKernel
 {
     protected $commands = [
         Commands\MigrarTablaUsuariosCommand::class,
-        Commands\MigrateTableHauliersCommand::class,
+        Commands\MigrateHauliersTableCommand::class,
+        Commands\MigrateUnitsTableCommand::class,
+        Commands\MigrateManagementsTableCommand::class,
     ];
     /**
      * Define the application's command schedule.

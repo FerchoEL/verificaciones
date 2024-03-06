@@ -6,14 +6,14 @@ use App\Models\Haulier;
 use Illuminate\Console\Command;
 use DB;
 
-class MigrateTableHauliersCommand extends Command
+class MigrateHauliersTableCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:migrate-table-hauliers-command';
+    protected $signature = 'app:migrate-hauliers-table-command';
 
     /**
      * The console command description.
@@ -26,7 +26,8 @@ class MigrateTableHauliersCommand extends Command
      * Execute the console command.
      */
     public function handle()
-    {   $count=0;
+    {
+        $count=0;
         $hauliersExternal = DB::connection('mysql_external')
             ->table('transportista')
             ->select('ID_transportista', 'nombre', 'idsap', 'rfc','telefono', 'correo','cp')
