@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('name',145);
-            $table->string('gerency',45);
-            $table->string('management',45)->nullable();
+            $table->unsignedBigInteger('management_id');
+            $table->foreign('management_id')->references('id')->on('management');
             $table->timestamps();
         });
     }

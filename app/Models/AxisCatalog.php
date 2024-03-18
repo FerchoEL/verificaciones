@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AxisCatalog extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+    ];
 }

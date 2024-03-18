@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CatalogSpecialFeature extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'field',
+        'category',
+    ];
     public function types(){
         return $this->belongsToMany('App\Models\Type');
     }

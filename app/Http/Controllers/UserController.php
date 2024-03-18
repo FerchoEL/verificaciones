@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Http\Resources\UserCollection;
+use App\Http\Resources\GlobalCollection;
 use App\Http\Resources\UserResource;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $response = ["status"=>0,"msg"=>"","data"=>""];
         $users = User::all();
-        $data = new UserCollection($users);
+        $data = new GlobalCollection($users);
         $response["status"]=200;
         $response["msg"]="Operacion completada con éxito";
         $response["data"]=$data;

@@ -34,10 +34,10 @@ Route::group([], function (){
     Route::apiResource('fields',\App\Http\Controllers\FieldController::class);
     Route::apiResource('mailing_lists',\App\Http\Controllers\MailingListController::class);
     Route::apiResource('update_units',\App\Http\Controllers\UpdateUnitController::class);
-    Route::apiResource('detail_values',\App\Http\Controllers\DetailValueController::class);
-    Route::apiResource('catalog_special_features',\App\Http\Controllers\CatalogSpecialFeatureController::class);
-    Route::apiResource('axis_catalogs',\App\Http\Controllers\AxisCatalogController::class);
-    Route::apiResource('car_brands',\App\Http\Controllers\CarBrandController::class);
-    Route::apiResource('supporting_features',\App\Http\Controllers\SupportingFeatureController::class);
+    Route::apiResource('detailvalues',\App\Http\Controllers\DetailValueController::class);
+    Route::apiResource('catalogspecialfeatures',\App\Http\Controllers\CatalogSpecialFeatureController::class);
+    Route::apiResource('axiscatalogs',\App\Http\Controllers\AxisCatalogController::class);
+    Route::apiResource('carbrands',\App\Http\Controllers\CarBrandController::class);
+    Route::apiResource('supportingfeatures',\App\Http\Controllers\SupportingFeatureController::class);
     Route::apiResource('expired_verifications',\App\Http\Controllers\ExpiredVerificationController::class);
 });

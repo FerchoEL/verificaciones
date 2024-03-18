@@ -11,7 +11,7 @@ class UpdateLocationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,17 @@ class UpdateLocationRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $method = $this->method();
+        if ($method == 'PUT'){
+            return [
+                'name' => ['required'],
+                'management_id' => ['required'],
+            ];
+        }else{
+            return [
+                'name' => ['sometimes','required'],
+                'management_id' => ['sometimes','required'],
+            ];
+        }
     }
 }

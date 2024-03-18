@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class CarBrand extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'brand',
+    ];
     public function units(){
         return $this->hasMany('App\Models\Unit');
     }
-    public function component(){
-        return $this->belongsTo('App\Models\Component');
+    public function components(){
+        return $this->belongsToMany('App\Models\Component');
     }
 }

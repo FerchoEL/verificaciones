@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('operator_name',45);
             $table->unsignedBigInteger('configuration_id')->nullable();
             $table->foreign('configuration_id')->references('id')->on('configurations')->onDelete('set null');
-            $table->string('comentary',255);
+            $table->string('comentary',191);
             $table->index('comentary');
             $table->unsignedBigInteger('haulier_id');
             $table->foreign('haulier_id')->references('id')->on('hauliers');

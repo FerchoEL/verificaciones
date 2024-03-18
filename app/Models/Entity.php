@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Entity extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+    ];
     public function units(){
         return $this->hasMany('App\Models\Unit');
     }

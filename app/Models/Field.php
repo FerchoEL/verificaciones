@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Field extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'category',
+        'subcategory',
+        'field',
+        'type',
+        'NOM',
+        'information',
+        'critically',
+        'system_type',
+    ];
     public function verifications(){
         return $this->belongsToMany('App\Models\Verification','verification_details');
     }
