@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Component extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'component',
+    ];
     /*public function vehicles(){
         return $this->belongsToMany('App\Models\Vehicle','component_configuration')->withTimestamps;
     }
@@ -22,6 +25,6 @@ class Component extends Model
         return $this->hasMany('App\Models\Unit');
     }
     public function carBrands(){
-        return $this->hasMany('App\Models\CarBrand');
+        return $this->belongsToMany('App\Models\CarBrand');
     }
 }
