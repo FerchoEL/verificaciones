@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VehiclesSeeder::class);
         $this->call(ConfigurationsSeeder::class);
         $this->call(DirectionsSeeder::class);
+        $this->call(EntitiesSeeder::class);
+        $this->call(ChainsSeeder::class);
     }
 }
