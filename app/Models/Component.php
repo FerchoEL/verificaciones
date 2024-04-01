@@ -10,6 +10,7 @@ class Component extends Model
     use HasFactory;
     protected $fillable = [
         'component',
+        'motor',
     ];
     /*public function vehicles(){
         return $this->belongsToMany('App\Models\Vehicle','component_configuration')->withTimestamps;

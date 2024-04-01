@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ComponentResource extends JsonResource
+class FeatureMotorUnitResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,12 +16,16 @@ class ComponentResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'component' => $this->component,
-            'motor' => $this->motor,
+            'unit_id' => $this->unit_id,
+            'electric_motor' => $this->electric_motor,
+            'horsepower' => $this->horsepower,
+            'torque' => $this->torque,
+            'traction' => $this->traction,
+            'capacity' => $this->capacity,
+            'auxiliary' => $this->auxiliary,
+            'regulator' => $this->regulator,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            //::collection carga la coleccion de datos de una relacion que tiene varios valores
-            'configurations' => ConfigurationResource::collection($this->whenLoaded('configurations')),
         ];
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ComponentResource extends JsonResource
+class CatalogSpecialFeatureTypeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,12 +16,12 @@ class ComponentResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'component' => $this->component,
-            'motor' => $this->motor,
+            'catalog_special_feature_id' => $this->catalog_special_feature_id,
+            'type_id' => $this->type_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             //::collection carga la coleccion de datos de una relacion que tiene varios valores
-            'configurations' => ConfigurationResource::collection($this->whenLoaded('configurations')),
+            'special_feature' => new SpecialFeatureResource($this->whenLoaded('units')),
         ];
     }
 }

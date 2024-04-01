@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('catalog_special_feature_type', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('special_feature_id');
-            $table->foreign('special_feature_id')->references('id')->on('catalog_special_features');
+            $table->unsignedBigInteger('catalog_special_feature_id');
+            $table->foreign('catalog_special_feature_id')->references('id')->on('catalog_special_features');
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('types');
             $table->timestamps();

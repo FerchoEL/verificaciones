@@ -27,4 +27,7 @@ class Location extends Model
     public function management(){
         return $this->belongsTo('App\Models\Management');
     }
+    public function units(){
+        return $this->hasMany('App\Models\Units');
+    }
 }

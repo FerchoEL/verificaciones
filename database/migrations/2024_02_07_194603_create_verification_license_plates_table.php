@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreign('unit_component_id')->references('component_id')->on('units');
             $table->Integer('license_plate');
             $table->foreign('license_plate')->references('license_plate')->on('units');
-            $table->Integer('stricker_serial');
-            $table->foreign('stricker_serial')->references('stricker_serial')->on('units');
+            $table->Integer('sticker_serial');
+            $table->foreign('sticker_serial')->references('sticker_serial')->on('units');
             $table->timestamps();
         });
     }

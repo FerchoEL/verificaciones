@@ -19,7 +19,7 @@ class ComponentsSeeder extends Seeder
             'Camioneta',
             'Tractocamion',
             'Convertidor',
-            'Unitario Platafora',
+            'Unitario Plataforma',
             'Unitario Tolva',
             'Unitario Volteo',
             'Unitario Tanque',
@@ -29,8 +29,20 @@ class ComponentsSeeder extends Seeder
             'Remolque Tanque',
             'Remolque Movil',
         ];
-        foreach ($componentNames as $componentName){
-            $component = Component::create(['component' => $componentName]);
+        foreach ($componentNames as $componentName) {
+            if ($componentName == "Camioneta" || $componentName == "Tractocamion" || $componentName == "Unitario Plataforma" ||
+                $componentName == "Unitario Tolva" || $componentName == "Unitario Volteo" || $componentName == "Unitario Tanque") {
+                    $component = Component::create([
+                        'component' => $componentName,
+                        'motor' => 1
+                    ]);
+            } else {
+                $component = Component::create([
+                    'component' => $componentName,
+                    'motor' => 0
+                ]);
+            }
+
         }
         $configurations = Configuration::all();
         foreach ($configurations as $configuration) {

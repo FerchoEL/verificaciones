@@ -23,6 +23,7 @@ class StoreComponentRequest extends FormRequest
     {
         return [
             'component' => ['required'],
+            'motor' => ['required'],
         ];
     }
 }

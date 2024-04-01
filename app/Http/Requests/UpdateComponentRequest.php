@@ -25,10 +25,12 @@ class UpdateComponentRequest extends FormRequest
         if ($method == 'PUT'){
             return [
                 'component' => ['required'],
+                'motor' => ['required'],
             ];
         }else{
             return [
                 'component' => ['sometimes','required'],
+                'motor' => ['sometimes','required'],
             ];
         }
     }

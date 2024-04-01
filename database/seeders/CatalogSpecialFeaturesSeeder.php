@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CatalogSpecialFeature;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -35,7 +36,13 @@ class CatalogSpecialFeaturesSeeder extends Seeder
                 'field' => $field,
                 'category' => $category
             ]);
+        }
 
+        $catalogspecialfeatures = CatalogSpecialFeature::all();
+
+        foreach ($catalogspecialfeatures as $catalogspecialfeature){
+            $types = Type::inRandomOrder()->take(5)->get();
+            $catalogspecialfeature->types()->attach($types->pluck('id'));
         }
     }
 }
