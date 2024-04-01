@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name',145);
             $table->unsignedBigInteger('management_id');
             $table->foreign('management_id')->references('id')->on('management');
+            $table->unsignedBigInteger('direction_id');
+            $table->foreign('direction_id')->references('id')->on('directions');
             $table->timestamps();
         });
     }

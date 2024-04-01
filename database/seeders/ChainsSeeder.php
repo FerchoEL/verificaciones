@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Chain;
-use App\Models\Location;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ChainsSeeder extends Seeder
 {
@@ -14,7 +13,7 @@ class ChainsSeeder extends Seeder
      */
     public function run(): void
     {
-        $chainNames = [
+        $chains = [
             'Agregados',
             'Granel',
             'Materia',
@@ -23,13 +22,14 @@ class ChainsSeeder extends Seeder
             'Contenedores',
             'Firsu',
             'Construrama',
-            'Promexa',
-            'Soluciones Urbanas',
+            'Promexma',
+            'Soluciones Urbanas'
         ];
-        foreach ($chainNames as $chainName) {
-            $chain = Chain::create(['name' => $chainName]);
-            $locations = Location::inRandomOrder()->take(5)->get();
-            $chain->locations()->attach($locations->pluck('id'));
+
+        foreach ($chains as $chain) {
+            DB::table('chains')->insert([
+                'name' => $chain,
+            ]);
         }
     }
 }

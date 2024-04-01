@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('idsap');
             $table->string('rfc',14)->nullable();
             $table->string('phone')->nullable();
-            $table->string('email',145)->nullable();
+            $table->text('email')->nullable();
             $table->unsignedBigInteger('entity_id')->nullable();
             $table->foreign('entity_id')->references('id')->on('entities');
             $table->string('city',45)->nullable();

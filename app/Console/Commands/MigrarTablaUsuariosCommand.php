@@ -28,7 +28,7 @@ class MigrarTablaUsuariosCommand extends Command
     public function handle()
     {
         $usuariosExternos = DB::connection('mysql_external')
-            ->table('usuario')
+            ->table('Usuario')
             ->select('id_Usuario', 'usuario', 'password', 'nombre', 'activo')
             ->get();
 

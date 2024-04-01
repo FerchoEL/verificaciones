@@ -29,7 +29,7 @@ class MigrateHauliersTableCommand extends Command
     {
         $count=0;
         $hauliersExternal = DB::connection('mysql_external')
-            ->table('transportista')
+            ->table('Transportista')
             ->select('ID_transportista', 'nombre', 'idsap', 'rfc','telefono', 'correo','cp')
             ->get();
 
@@ -38,7 +38,13 @@ class MigrateHauliersTableCommand extends Command
             $haulier->id = $haulierExternal->ID_transportista;
             $haulier->name = $haulierExternal->nombre;
             $haulier->idsap = $haulierExternal->idsap;
-            $haulier->rfc = $haulierExternal->rfc;
+
+            $rfcFullData=$haulierExternal->rfc;
+            if($rfcFullData !== null && $rfcFullData !== ''){
+                $rfcSubstr = substr($rfcFullData, 0, 13);
+                $haulier->rfc = $rfcSubstr;
+            }
+
             $phoneFullData = $haulierExternal->telefono; // Suponiendo que $haulierExternal->telefono contiene el número de teléfono completo
             if ($phoneFullData !== null && $phoneFullData !== '') {
                 $phoneOnlyDigits = preg_replace('/\D/', '', $phoneFullData); // Eliminar todo lo que no sea dígito
