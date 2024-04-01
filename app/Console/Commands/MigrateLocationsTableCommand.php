@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Direction;
 use App\Models\Location;
 use App\Models\Management;
 use Illuminate\Console\Command;
@@ -32,7 +33,7 @@ class MigrateLocationsTableCommand extends Command
         $count=0;
         $locationsExternal = DB::connection('mysql_external')
             ->table('Ubicacion')
-            ->select('ubicacion', 'gerencia')
+            ->select('ubicacion', 'gerencia','direccion')
             ->get();
 
             foreach ($locationsExternal as $locationExternal) {
@@ -43,6 +44,8 @@ class MigrateLocationsTableCommand extends Command
                     $location = new Location();
                     $location->name = $locationExternal->ubicacion;
                     $location->management_id = $management->id; // Asigna el ID de dirección local
+                    $direction = Direction::where(DB::raw('LOWER(name)'), Str::lower($locationExternal->direccion))->first();
+                    $location->direction_id = $direction->id;
                     $location->save();
                     $count++;
                 } else {
